@@ -16,6 +16,7 @@ public class GemCountText : MonoBehaviour, IDataPersistence
     {
         // subscribe to events
         GameEventsManager.instance.onGemsCollected += OnGemsCollected;
+        UpdateUI();
     }
 
     public void LoadData(GameData data)
