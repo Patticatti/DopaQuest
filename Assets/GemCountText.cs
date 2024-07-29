@@ -12,9 +12,10 @@ public class GemCountText : MonoBehaviour
         gemCountText = this.GetComponent<TextMeshProUGUI>();
     }
     // Start is called before the first frame update
-    private void Start()
+    private void Start() 
     {
-        
+        // subscribe to events
+        GameEventsManager.instance.onGemsCollected += OnGemsCollected;
     }
 
     public void LoadData(GameData data)
@@ -25,6 +26,17 @@ public class GemCountText : MonoBehaviour
     public void SaveData(ref GameData data)
     {
         data.gemCount = this.gemCount;
+    }
+
+    private void OnGemsCollected(int gemsCollected)
+    {
+        gemCount += 10;
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        gemCountText.text = gemCount.ToString();
     }
 
     // Update is called once per frame

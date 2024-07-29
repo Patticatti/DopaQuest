@@ -21,6 +21,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Start()
     {
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
 
@@ -36,15 +37,34 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.Log("No data was found. Initializing data to defaults.");
             NewGame();
         }
+
+        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        {
+            dataPersistenceObj.LoadData(gameData);
+        }
+
+        Debug.Log("Loaded gem count = " + gameData.gemCount);
     }
 
     public void SaveGame()
     {
+        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        {
+            dataPersistenceObj.SaveData(ref gameData);
+        }
 
+        Debug.Log("Saved gem count = " + gameData.gemCount);
     }
 
     private void OnApplicationQuit()
     {
         SaveGame();
+    }
+
+    private List<IDataPersistence> FindAllDataPersistenceObjects()
+    {
+        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>()
+            .OfType<IDataPersistence>();
+        return new List<IDataPersistence>(dataPersistenceObjects);
     }
 }

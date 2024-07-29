@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class GameData 
 {
-    public int deathCount;
+    public int gemCount;
 
     public GameData(){
-        this.deathCount = 0;
+        this.gemCount = 0;
     }
 }
