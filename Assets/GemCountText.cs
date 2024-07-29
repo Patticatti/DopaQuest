@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GemCountText : MonoBehaviour
+public class GemCountText : MonoBehaviour, IDataPersistence
 {
     private int gemCount = 0;
     private TextMeshProUGUI gemCountText;
