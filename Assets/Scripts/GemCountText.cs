@@ -6,7 +6,6 @@ using TMPro;
 public class GemCountText : MonoBehaviour, IDataPersistence
 {
     private int gemCount = 0;
-    private int gemReward = 10;
     private TextMeshProUGUI gemCountText;
 
     private void Awake(){
@@ -33,13 +32,8 @@ public class GemCountText : MonoBehaviour, IDataPersistence
 
     private void OnGemsCollected(int gemsCollected)
     {
-        gemCount += gemReward;
+        gemCount += gemsCollected;
         UpdateUI();
-    }
-
-    public void SetGemReward(int taskReward)
-    {
-        gemReward = taskReward;
     }
 
     private void UpdateUI()

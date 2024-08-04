@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8302a9095a1b6148b76e0b8db722e05, type: 3}
   m_Name: Data 1
   m_EditorClassIdentifier: 
-  id: 
-  taskName: Untitled Task
-  taskReward: 10
+  id: 3d579699-c08a-4010-8c20-63a0b9b92206
+  taskName: 15 min walking
+  taskReward: 20

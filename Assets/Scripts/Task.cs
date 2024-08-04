@@ -10,12 +10,14 @@ public class Task : MonoBehaviour
     public TextMeshProUGUI taskNameText;
     [SerializeField] TextMeshProUGUI taskRewardText;
     public Toggle toggle;
+    public int taskReward;
 
     private void Start()
     {
         // taskNameText = GetComponentInChildren<Text>()
         taskNameText.text = taskObject.taskName;
         taskRewardText.text = "" + taskObject.taskReward;
+        taskReward = taskObject.taskReward;
         toggle.onValueChanged.AddListener(OnToggleChanged);
     }
 
