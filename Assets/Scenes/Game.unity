@@ -1039,7 +1039,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskItemPrefab: {fileID: 5903874221820579298, guid: 918d14154317a9f4b9478f7b0a923540, type: 3}
   content: {fileID: 1312237028}
-  taskScriptableObjects: []
+  taskScriptableObjects:
+  - {fileID: 11400000, guid: bb59f492388612f4a95fc5672dc5f3ab, type: 2}
+--- !u!114 &1537273744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6225421026794634914, guid: eacdb87f002253a449157808c788fb6a, type: 3}
+  m_PrefabInstance: {fileID: 3087170748054668905}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1807192746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,9 +1457,17 @@ PrefabInstance:
       value: 1c5782db-ae6d-46b9-8c0b-86d4b5a8e665
       objectReference: {fileID: 0}
     - target: {fileID: 8591649749033545178, guid: eacdb87f002253a449157808c788fb6a, type: 3}
+      propertyPath: taskData
+      value: 
+      objectReference: {fileID: 11400000, guid: bb59f492388612f4a95fc5672dc5f3ab, type: 2}
+    - target: {fileID: 8591649749033545178, guid: eacdb87f002253a449157808c788fb6a, type: 3}
       propertyPath: taskName
       value: Do the dishes
       objectReference: {fileID: 0}
+    - target: {fileID: 8591649749033545178, guid: eacdb87f002253a449157808c788fb6a, type: 3}
+      propertyPath: taskText
+      value: 
+      objectReference: {fileID: 1537273744}
     - target: {fileID: 8591649749033545178, guid: eacdb87f002253a449157808c788fb6a, type: 3}
       propertyPath: taskReward
       value: 20

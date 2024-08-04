@@ -34,4 +34,11 @@ public class TaskManager : MonoBehaviour
         GameObject currentTask = Instantiate(taskItemPrefab, content.position, Quaternion.identity, content.transform);
     }
 
+    private string GenerateGuid(string id)
+    {
+        if (id == null)
+            return System.Guid.NewGuid().ToString();
+        return id;
+    }
+
 }

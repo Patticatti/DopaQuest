@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8302a9095a1b6148b76e0b8db722e05, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
+  id: 
   taskName: Do the dishes
   taskReward: 10
