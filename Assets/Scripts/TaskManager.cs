@@ -41,9 +41,13 @@ public class TaskManager : MonoBehaviour
         taskScript.taskObject = obj;
     }
 
-    private void CreateNewTask(string taskName, int taskReward)
+    private void CreateNewTask(string name, int reward)
     {
-
+        TaskScriptableObject newTaskObject = ScriptableObject.CreateInstance<TaskScriptableObject>();
+        newTaskObject.taskName = name;
+        newTaskObject.taskReward = reward;
+        taskScriptableObjects.Add(newTaskObject);
+        RenderTaskItem(newTaskObject);
     }
 
     private string GenerateGuid(string id)
