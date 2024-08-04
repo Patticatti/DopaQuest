@@ -22,6 +22,7 @@ public class GemCountText : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         this.gemCount = data.gemCount;
+        UpdateUI();
     }
 
     public void SaveData(ref GameData data)
@@ -37,7 +38,7 @@ public class GemCountText : MonoBehaviour, IDataPersistence
 
     private void UpdateUI()
     {
-        gemCountText.text = gemCount.ToString();
+        gemCountText.text = "" + gemCount;
     }
 
     // Update is called once per frame
