@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameData 
 {
     public int gemCount;
+    public List<TaskScriptableObject> taskScriptableObjects;
 
     public GameData(){
         this.gemCount = 0;

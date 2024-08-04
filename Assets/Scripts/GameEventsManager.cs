@@ -23,6 +23,15 @@ public class GameEventsManager : MonoBehaviour
         }
     }
 
+    public event Action<string, int> createNewTask;
+    public void CreateNewTask(string taskName, int taskReward) 
+    {
+        if (createNewTask != null) 
+        {
+            createNewTask(taskName, taskReward);
+        }
+    }
+
     public event Action onCoinCollected;
     public void CoinCollected() 
     {
