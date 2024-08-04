@@ -23,7 +23,7 @@ public class Task : MonoBehaviour
     {
         if (isOn)
         {
-            GameEventsManager.instance.GemsCollected(taskReward); // Add task reward
+            GameEventsManager.instance.GemsCollected(taskObject.taskReward); // Add task reward
             toggle.interactable = false; // Disable the toggle
         }
     }
