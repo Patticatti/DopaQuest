@@ -11,5 +11,6 @@ public class GameData
 
     public GameData(){
         this.gemCount = 0;
+        this.taskScriptableObjects = new List<TaskScriptableObject>();
     }
 }

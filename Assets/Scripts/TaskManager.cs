@@ -5,13 +5,14 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     public GameObject taskItemPrefab;
-    public Transform content;
+    public Transform parentTransform;
     [SerializeField] private List<TaskScriptableObject> taskScriptableObjects = new List<TaskScriptableObject>();
 
     private void Start() 
     {
         // subscribe to events
         GameEventsManager.instance.createNewTask += CreateNewTask;
+        RenderTasks();
     }
 
     public void LoadData(GameData data)
@@ -24,14 +25,25 @@ public class TaskManager : MonoBehaviour
         data.taskScriptableObjects = this.taskScriptableObjects;
     }
 
-    private void RenderTask(string taskName, int taskReward)
+    private void RenderTasks()
     {
-        GameObject currentTask = Instantiate(taskItemPrefab, content.position, Quaternion.identity, content.transform);
+        foreach (TaskScriptableObject obj in taskScriptableObjects)
+        {
+            RenderTaskItem(obj);
+        }
+    }
+
+    private void RenderTaskItem(TaskScriptableObject obj)
+    {
+        GameObject currentTask = Instantiate(taskItemPrefab);
+        currentTask.transform.SetParent(parentTransform);
+        Task taskScript = currentTask.GetComponent<Task>();
+        taskScript.taskObject = obj;
     }
 
     private void CreateNewTask(string taskName, int taskReward)
     {
-        GameObject currentTask = Instantiate(taskItemPrefab, content.position, Quaternion.identity, content.transform);
+
     }
 
     private string GenerateGuid(string id)

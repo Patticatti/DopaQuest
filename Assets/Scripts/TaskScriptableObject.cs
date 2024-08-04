@@ -7,9 +7,9 @@ public class TaskScriptableObject : ScriptableObject
     public string taskName = "Untitled Task";
     public int taskReward = 10;
 
-    private void Start()
+    private void OnEnable()
     {
-        if (id == null)
+        if (string.IsNullOrEmpty(id))
         {
             id = System.Guid.NewGuid().ToString();
         }
