@@ -6,7 +6,8 @@ public class TaskManager : MonoBehaviour, IDataPersistence
 {
     public GameObject taskItemPrefab;
     public Transform parentTransform;
-    private List<TaskScriptableObject> taskScriptableObjects;
+    private List<TaskObject> taskObjects = new List<TaskObject>();
+    private Dictionary<TaskObject, GameObject> taskObjectToGameObjectMap = new Dictionary<TaskObject, GameObject>();
 
     private void Start() 
     {
@@ -17,40 +18,57 @@ public class TaskManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.taskScriptableObjects = data.taskScriptableObjects;
+        this.taskObjects = data.taskObjects;
         RenderTasks();
     }
 
     public void SaveData(ref GameData data)
     {
-        data.taskScriptableObjects = this.taskScriptableObjects;
+        data.taskObjects = this.taskObjects;
     }
 
     private void RenderTasks()
     {
-        foreach (TaskScriptableObject obj in taskScriptableObjects)
+        foreach (TaskObject obj in taskObjects)
         {
             RenderTaskItem(obj);
         }
     }
 
-    private void RenderTaskItem(TaskScriptableObject obj)
+    private void RenderTaskItem(TaskObject obj)
     {
         GameObject currentTask = Instantiate(taskItemPrefab);
         currentTask.transform.SetParent(parentTransform);
         Task taskScript = currentTask.GetComponent<Task>();
         taskScript.taskObject = obj;
+        taskObjectToGameObjectMap[obj] = currentTask;
     }
 
     private void CreateNewTask(string name, int reward)
     {
         Debug.Log("created new task");
-        TaskScriptableObject newTaskObject = ScriptableObject.CreateInstance<TaskScriptableObject>();
-        newTaskObject.taskName = name;
-        newTaskObject.taskReward = reward;
-        newTaskObject.id = System.Guid.NewGuid().ToString();
-        taskScriptableObjects.Add(newTaskObject);
-        RenderTasks();
+        TaskObject currentTask = new TaskObject(System.Guid.NewGuid().ToString(), name, reward);
+        if (name == null)
+        {
+            currentTask.taskName = "Untitled Task";
+        }
+        taskObjects.Add(currentTask);
+        RenderTaskItem(currentTask);
+    }
+
+    private void DeleteTaskObject(TaskObject taskObject)
+    {
+        if (taskObjectToGameObjectMap.TryGetValue(taskObject, out GameObject taskGameObject))
+        {
+            // Remove the TaskObject from the list
+            taskObjects.Remove(taskObject);
+
+            // Destroy the GameObject
+            Destroy(taskGameObject);
+
+            // Remove the mapping
+            taskObjectToGameObjectMap.Remove(taskObject);
+        }
     }
 
     private string GenerateGuid(string id)

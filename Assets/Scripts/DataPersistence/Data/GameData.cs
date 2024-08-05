@@ -7,10 +7,10 @@ using UnityEngine;
 public class GameData 
 {
     public int gemCount;
-    public List<TaskScriptableObject> taskScriptableObjects;
+    public List<TaskObject> taskObjects;
 
     public GameData(){
         this.gemCount = 0;
-        this.taskScriptableObjects = new List<TaskScriptableObject>();
+        this.taskObjects = new List<TaskObject>();
     }
 }

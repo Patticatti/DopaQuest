@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Task : MonoBehaviour
 {
-    public TaskScriptableObject taskObject;
+    public TaskObject taskObject;
     public TextMeshProUGUI taskNameText;
     [SerializeField] TextMeshProUGUI taskRewardText;
     public Toggle toggle;
