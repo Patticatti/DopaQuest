@@ -6,6 +6,7 @@ public class TaskManager : MonoBehaviour, IDataPersistence
 {
     public GameObject taskItemPrefab;
     public Transform parentTransform;
+    public GameObject addPanel;
     private List<TaskObject> taskObjects = new List<TaskObject>();
     private Dictionary<TaskObject, GameObject> taskObjectToGameObjectMap = new Dictionary<TaskObject, GameObject>();
 
@@ -25,6 +26,19 @@ public class TaskManager : MonoBehaviour, IDataPersistence
     public void SaveData(ref GameData data)
     {
         data.taskObjects = this.taskObjects;
+    }
+
+    public void SwitchMode(int mode)
+    {
+        switch (mode)
+        {
+            case 0:
+                addPanel.SetActive(false);
+                break;
+            case 1:
+                addPanel.SetActive(true);
+                break;
+        }
     }
 
     private void RenderTasks()

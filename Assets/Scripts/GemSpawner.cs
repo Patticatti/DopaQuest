@@ -26,7 +26,6 @@ public class GemSpawner : MonoBehaviour
 
     private void OnGemsCollected(int gemsCollected)
     {
-        gemCount = 10;
         StartCoroutine(SpawnGems());
     }
 
@@ -39,7 +38,7 @@ public class GemSpawner : MonoBehaviour
             Instantiate(gemPrefab, parentTransform);
             yield return new WaitForSeconds(spawnInterval);
         }
-        StartCoroutine(PlayGemEffect());
+        // StartCoroutine(PlayGemEffect());
     }
 
     private IEnumerator PlayGemEffect()
