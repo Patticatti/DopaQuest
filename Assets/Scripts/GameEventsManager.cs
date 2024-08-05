@@ -32,12 +32,12 @@ public class GameEventsManager : MonoBehaviour
         }
     }
 
-    public event Action onCoinCollected;
-    public void CoinCollected() 
+    public event Action<string> deleteTask;
+    public void DeleteTask(string taskID) 
     {
-        if (onCoinCollected != null) 
+        if (deleteTask != null) 
         {
-            onCoinCollected();
+            deleteTask(taskID);
         }
     }
 }

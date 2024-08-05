@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskManager : MonoBehaviour
+public class TaskManager : MonoBehaviour, IDataPersistence
 {
     public GameObject taskItemPrefab;
     public Transform parentTransform;
-    [SerializeField] private List<TaskScriptableObject> taskScriptableObjects = new List<TaskScriptableObject>();
+    private List<TaskScriptableObject> taskScriptableObjects;
 
     private void Start() 
     {
@@ -18,6 +18,7 @@ public class TaskManager : MonoBehaviour
     public void LoadData(GameData data)
     {
         this.taskScriptableObjects = data.taskScriptableObjects;
+        RenderTasks();
     }
 
     public void SaveData(ref GameData data)
@@ -43,11 +44,13 @@ public class TaskManager : MonoBehaviour
 
     private void CreateNewTask(string name, int reward)
     {
+        Debug.Log("created new task");
         TaskScriptableObject newTaskObject = ScriptableObject.CreateInstance<TaskScriptableObject>();
         newTaskObject.taskName = name;
         newTaskObject.taskReward = reward;
+        newTaskObject.id = System.Guid.NewGuid().ToString();
         taskScriptableObjects.Add(newTaskObject);
-        RenderTaskItem(newTaskObject);
+        RenderTasks();
     }
 
     private string GenerateGuid(string id)
