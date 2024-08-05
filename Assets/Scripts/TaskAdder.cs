@@ -13,20 +13,6 @@ public class TaskAdder : MonoBehaviour
     public TextMeshProUGUI inputText;
     public ToggleGroup toggleGroup;
 
-    // Start is called before the first frame update
-    public void SetTaskName()
-    {
-        if (inputText.text == "" || inputText.text == null)
-        {
-            taskName = "Untitled Task";
-        }
-        else
-        {
-          taskName = inputText.text;  
-        }
-        
-    }
-
     public void SetDifficulty(int mode)
     {
         this.difficulty = mode;
@@ -35,6 +21,14 @@ public class TaskAdder : MonoBehaviour
     public void CreateTask()
     {
         int reward = (10 * difficulty);
+        if (inputText.text == "" || inputText.text == null)
+        {
+            taskName = "Untitled Task";
+        }
+        else
+        {
+          taskName = inputText.text;  
+        }
         GameEventsManager.instance.CreateNewTask(taskName, reward);
         //reset everything
         this.difficulty = 1;
