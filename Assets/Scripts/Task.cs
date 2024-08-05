@@ -11,7 +11,7 @@ public class Task : MonoBehaviour
     public TextMeshProUGUI taskNameText;
     public int taskReward;
     public Toggle toggle;
-
+    public AudioClip menuClickSound;
     [SerializeField] TextMeshProUGUI taskRewardText;
 
     private void Start()
@@ -28,7 +28,13 @@ public class Task : MonoBehaviour
         if (isOn)
         {
             GameEventsManager.instance.GemsCollected(taskObject.taskReward); // Add task reward
+            PlayMenuClick();
             // toggle.interactable = false; // Disable the toggle
         }
+    }
+
+    void PlayMenuClick()
+    {
+        AudioManager.instance.PlaySound(menuClickSound);
     }
 }

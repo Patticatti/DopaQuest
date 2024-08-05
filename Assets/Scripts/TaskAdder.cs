@@ -16,7 +16,7 @@ public class TaskAdder : MonoBehaviour
     // Start is called before the first frame update
     public void SetTaskName()
     {
-        if (String.IsNullOrEmpty(inputText.text))
+        if (inputText.text == "" || inputText.text == null)
         {
             taskName = "Untitled Task";
         }
