@@ -26,7 +26,7 @@ public class Task : MonoBehaviour
         if (isOn)
         {
             GameEventsManager.instance.GemsCollected(taskObject.taskReward); // Add task reward
-            toggle.interactable = false; // Disable the toggle
+            // toggle.interactable = false; // Disable the toggle
         }
     }
 }
