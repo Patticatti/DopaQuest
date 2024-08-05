@@ -6,12 +6,12 @@ public class GemAnimation : MonoBehaviour
 {
     public Transform targetTransform;
 
-    public float moveDuration = 0.3f;
+    public float moveDuration = 0.25f;
     public float targetScale = 1.2f;
     public float initialScale = 0.01f;
     public float moveDistance = 80f;
     public float scaleBackDuration = 0.15f;
-    public float moveToTargetDuration = 0.75f;
+    public float moveToTargetDuration = 0.6f;
 
     private Vector3 originalPosition;
     private Vector3 targetPosition;
@@ -94,7 +94,7 @@ public class GemAnimation : MonoBehaviour
             float t = elapsedTime / moveToTargetDuration;
 
             // Apply an ease-in curve to the fraction
-            t = Mathf.Pow(t, 2);
+            t = Mathf.Pow(t, 3);
 
             // Lerp the position based on the eased time fraction
             transform.position = Vector3.Lerp(startPosition, endPosition, t);

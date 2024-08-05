@@ -94,4 +94,4 @@ MonoBehaviour:
   initialScale: 0.01
   moveDistance: 120
   scaleBackDuration: 0.15
-  moveToTargetDuration: 1
+  moveToTargetDuration: 0.8

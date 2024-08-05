@@ -7,7 +7,7 @@ public class GemSpawner : MonoBehaviour
     public GameObject gemPrefab;        // The gem prefab to instantiate
     public Transform parentTransform;   // The parent transform for the instantiated gems
     public int gemCount = 15;           // Number of gems to instantiate
-    public float spawnInterval = 0.1f;  // Interval between each gem instantiation
+    public float spawnInterval = 0.03f;  // Interval between each gem instantiation
     public AudioClip spawningAudioClip;
     public AudioClip endAudioClip;
 
@@ -32,12 +32,23 @@ public class GemSpawner : MonoBehaviour
 
     private IEnumerator SpawnGems()
     {
-        audioSource.clip = spawningAudioClip;
-        audioSource.Play();
+        audioSource.PlayOneShot(spawningAudioClip);
+        
         for (int i = 0; i < gemCount; i++)
         {
             Instantiate(gemPrefab, parentTransform);
             yield return new WaitForSeconds(spawnInterval);
+        }
+        StartCoroutine(PlayGemEffect());
+    }
+
+    private IEnumerator PlayGemEffect()
+    {
+        yield return new WaitForSeconds(0.8f);
+        for (int i = 0; i < 5; i++)
+        {
+            yield return new WaitForSeconds(spawnInterval);
+            audioSource.PlayOneShot(endAudioClip);
         }
     }
 }
