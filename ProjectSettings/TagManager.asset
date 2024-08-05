@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GlobalScreen
   - GemCounter
+  - Completed
   layers:
   - Default
   - TransparentFX

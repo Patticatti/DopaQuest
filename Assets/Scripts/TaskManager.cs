@@ -52,7 +52,10 @@ public class TaskManager : MonoBehaviour, IDataPersistence
     private void RenderTaskItem(TaskObject obj)
     {
         GameObject currentTask = Instantiate(taskItemPrefab);
-        currentTask.transform.SetParent(parentTransform);
+        currentTask.transform.SetParent(parentTransform); 
+        if (!obj.isComplete){
+            currentTask.transform.SetAsFirstSibling();  
+        }
         Task taskScript = currentTask.GetComponent<Task>();
         taskScript.taskObject = obj;
         taskObjectToGameObjectMap[obj] = currentTask;
