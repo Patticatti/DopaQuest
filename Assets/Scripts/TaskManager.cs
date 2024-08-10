@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -64,11 +65,7 @@ public class TaskManager : MonoBehaviour, IDataPersistence
     private void CreateNewTask(string name, int reward)
     {
         Debug.Log("created new task");
-        TaskObject currentTask = new TaskObject(System.Guid.NewGuid().ToString(), name, reward);
-        if (name == null)
-        {
-            currentTask.taskName = "Untitled Task";
-        }
+        TaskObject currentTask = new TaskObject(System.Guid.NewGuid().ToString(), name, reward, GetCurrentDateTime());
         taskObjects.Add(currentTask);
         RenderTaskItem(currentTask);
     }
@@ -93,6 +90,13 @@ public class TaskManager : MonoBehaviour, IDataPersistence
         if (id == null)
             return System.Guid.NewGuid().ToString();
         return id;
+    }
+
+    private string GetCurrentDateTime()
+    {
+        DateTime now = DateTime.Now;
+        string format = "MM/dd/yyyy h:mm tt";
+        return now.ToString(format);
     }
 
 }

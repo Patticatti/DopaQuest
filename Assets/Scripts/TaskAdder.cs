@@ -21,14 +21,7 @@ public class TaskAdder : MonoBehaviour
     public void CreateTask()
     {
         int reward = (10 * difficulty);
-        if (inputText.text == "" || inputText.text == null)
-        {
-            taskName = "Untitled Task";
-        }
-        else
-        {
-          taskName = inputText.text;  
-        }
+        taskName = inputText.text;  
         GameEventsManager.instance.CreateNewTask(taskName, reward);
         //reset everything
         this.difficulty = 1;
