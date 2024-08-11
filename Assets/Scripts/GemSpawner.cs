@@ -31,6 +31,7 @@ public class GemSpawner : MonoBehaviour
 
     private IEnumerator SpawnGems()
     {
+        yield return new WaitForSeconds(0.5f);
         audioSource.PlayOneShot(spawningAudioClip);
         
         for (int i = 0; i < gemCount; i++)
