@@ -10,7 +10,7 @@ public class Task : MonoBehaviour
     public TaskObject taskObject;
     public GameObject gemPrefab;
     public TextMeshProUGUI taskNameText;
-    public TextMeshProUGUI taskCreatedText;
+    // public TextMeshProUGUI taskCreatedText;
     public int taskReward;
     public Toggle toggle;
     public AudioClip menuClickSound;
@@ -28,15 +28,25 @@ public class Task : MonoBehaviour
             taskNameText.text = taskObject.taskName;
         taskRewardText.text = "" + taskObject.taskReward;
         taskReward = taskObject.taskReward;
-        taskCreatedText.text = "" + taskObject.dateCreated;
+        // taskCreatedText.text = "" + taskObject.dateCreated;
         originalText = taskNameText.text;
-        if (taskObject.isComplete)
+        // if (taskObject.isComplete)
+        // {
+        //     toggle.isOn = true;
+        // }
+        // toggle.onValueChanged.AddListener(OnToggleChanged);
+    }
+
+    public void CompleteTask(){
+        if (!taskObject.isComplete)
         {
-            toggle.isOn = true;
             SetCrossedOut();
-            SetFaded();
+        SetFaded();
+        OnToggleChanged(true);
+        }else{
+            OnToggleChanged(false);
         }
-        toggle.onValueChanged.AddListener(OnToggleChanged);
+        
     }
 
     private void OnToggleChanged(bool isOn)
