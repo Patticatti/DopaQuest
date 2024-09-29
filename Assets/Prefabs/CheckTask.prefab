@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 6677451247434108413}
   - component: {fileID: 9064255215722063524}
   - component: {fileID: 2945026758560029122}
-  - component: {fileID: 6900141283705013648}
+  - component: {fileID: 7132775069123439220}
   m_Layer: 5
   m_Name: CheckTask
   m_TagString: Untagged
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6900141283705013648
+--- !u!114 &7132775069123439220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5903874221820579298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c827af023813a148901c86f8ceea764, type: 3}
+  m_Script: {fileID: 11500000, guid: 014aacfdcdfaf1848acdf127856c7970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   taskObject:

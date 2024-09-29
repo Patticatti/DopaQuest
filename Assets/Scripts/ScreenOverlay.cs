@@ -12,6 +12,7 @@ public class ScreenOverlay : MonoBehaviour
 
     private void Start(){
         GameEventsManager.instance.onGemsCollected += EnableComponent;
+        gameObject.SetActive(false);
     }
 
     private void OnMouseDown()

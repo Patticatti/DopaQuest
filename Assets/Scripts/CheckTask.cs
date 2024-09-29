@@ -5,13 +5,14 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Task : MonoBehaviour
+public class CheckTask : MonoBehaviour
 {
     public TaskObject taskObject;
     public GameObject gemPrefab;
     public TextMeshProUGUI taskNameText;
-    // public TextMeshProUGUI taskCreatedText;
+    public TextMeshProUGUI taskCreatedText;
     public int taskReward;
+    public Toggle toggle;
     public AudioClip menuClickSound;
     [SerializeField] TextMeshProUGUI taskRewardText;
     private float duration = 0.8f;
@@ -20,35 +21,25 @@ public class Task : MonoBehaviour
 
     private void Start()
     {
-        if (taskObject.taskName == "" || taskObject.taskName == null)
+        // taskNameText = GetComponentInChildren<Text>()
+        if (String.IsNullOrEmpty(taskObject.taskName))
             taskNameText.text = "Untitled Task";
         else
             taskNameText.text = taskObject.taskName;
         taskRewardText.text = "" + taskObject.taskReward;
         taskReward = taskObject.taskReward;
-        // taskCreatedText.text = "" + taskObject.dateCreated;
+        taskCreatedText.text = "" + taskObject.dateCreated;
         originalText = taskNameText.text;
         if (taskObject.isComplete)
         {
+            toggle.isOn = true;
+            SetCrossedOut();
             SetFaded();
-            SetCrossedOut();
         }
+        toggle.onValueChanged.AddListener(OnToggleChanged);
     }
 
-    public void CompleteTask(){
-        if (!taskObject.isComplete)
-        {
-            SetCrossedOut();
-        SetFaded();
-        OnTaskCompletion(true);
-        }else{
-            OnTaskCompletion(false);
-        }
-        
-    }
-
-    //If is completed 
-    private void OnTaskCompletion(bool isOn)
+    private void OnToggleChanged(bool isOn)
     {
         PlayMenuClick();
         if (isOn)
