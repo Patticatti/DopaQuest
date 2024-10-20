@@ -10,21 +10,10 @@ public class ScreenOverlay : MonoBehaviour
     public float duration = 0.05f;
     // Start is called before the first frame update
 
-    private void Start(){
-        GameEventsManager.instance.onGemsCollected += EnableComponent;
-        gameObject.SetActive(false);
-    }
-
     private void OnMouseDown()
     {
         gameObject.SetActive(false);
         StopAllCoroutines();
-    }
-
-    private void EnableComponent(int gemsCollected)
-    {
-        if (gemsCollected > 0)
-            gameObject.SetActive(true);
     }
 
     private void OnEnable()
