@@ -26,7 +26,10 @@ public class GemSpawner : MonoBehaviour
 
     private void OnGemsCollected(int gemsCollected)
     {
-        StartCoroutine(SpawnGems());
+        if (gemsCollected > 0)
+        {
+            StartCoroutine(SpawnGems());
+        }
     }
 
     private IEnumerator SpawnGems()
