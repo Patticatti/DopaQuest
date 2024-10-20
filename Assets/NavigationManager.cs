@@ -6,16 +6,30 @@ public class NavigationManager : MonoBehaviour
 {
     [SerializeField] private GameObject shopScreen;
     [SerializeField] private GameObject taskScreen;
-    [SerializeField] private GameObject dailyScreen;
+    // [SerializeField] private GameObject dailyScreen;
 
-    void Start()
+    public void SetScene(int scene)
     {
-        
-    }
+        // Disable all scenes first
+        shopScreen.SetActive(false);
+        taskScreen.SetActive(false);
+        // dailyScreen.SetActive(false);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Enable the selected scene based on the button pressed
+        switch(scene)
+        {
+            case 0:
+                shopScreen.SetActive(true);
+                break;
+            case 1:
+                taskScreen.SetActive(true);
+                break;
+            // case 2:
+            //     dailyScreen.SetActive(true);
+            //     break;
+            default:
+                Debug.LogError("Invalid scene index");
+                break;
+        }
     }
 }
