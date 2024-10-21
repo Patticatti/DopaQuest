@@ -185,9 +185,9 @@ RectTransform:
   - {fileID: 931080358800478156}
   m_Father: {fileID: 1446555992929025170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -276, y: -0.0000076294}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 52, y: -0.0000076294}
   m_SizeDelta: {x: 76, y: 76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8372846800750737912
@@ -464,10 +464,8 @@ MonoBehaviour:
     dateCreated: 
     dateCompleted: 
   gemPrefab: {fileID: 4134743242048953659, guid: 08240ea39ec064f40b53c2503caaafd8, type: 3}
-  taskNameText: {fileID: 8744615334271423938}
-  taskCreatedText: {fileID: 4600090409867883619}
+  taskNameText: {fileID: 5765484309122431909}
   taskReward: 0
-  toggle: {fileID: 2797134796837406815}
   menuClickSound: {fileID: 8300000, guid: 732b15f5e1a4c9c4a989242f7dd9b7c6, type: 3}
   taskRewardText: {fileID: 8888069504531826078}
 --- !u!1 &2924399492934238042
@@ -780,7 +778,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Do the dishes
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -883,9 +881,9 @@ RectTransform:
   - {fileID: 3698085182099695186}
   m_Father: {fileID: 1446555992929025170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -118.53, y: -22.646}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 209.47, y: 32.354004}
   m_SizeDelta: {x: 202.4939, y: 39.7293}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7673388397244115792
@@ -1639,10 +1637,10 @@ RectTransform:
   - {fileID: 7453048463616916721}
   m_Father: {fileID: 1446555992929025170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 238, y: 0.9116783}
-  m_SizeDelta: {x: 151.9506, y: 74.177}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -90, y: 0.9116783}
+  m_SizeDelta: {x: 151.95062, y: 74.177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1158786044761615590
 CanvasRenderer:
@@ -1705,8 +1703,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 0.6784314, b: 0.05490196, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.7019608, g: 0.4745098, b: 0.039215688, a: 1}
+    m_SelectedColor: {r: 0.7019608, g: 0.4745098, b: 0.039215688, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1770,10 +1768,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1446555992929025170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -117.91, y: -4.61}
-  m_SizeDelta: {x: 201.25, y: 17.0239}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 210.09, y: 50.39}
+  m_SizeDelta: {x: 201.25, y: 17.023895}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4505310566486698935
 CanvasRenderer:

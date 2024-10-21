@@ -10,10 +10,13 @@ public class ScreenOverlay : MonoBehaviour
     public float duration = 0.05f;
     // Start is called before the first frame update
 
-    private void OnMouseDown()
+    private void Update()
     {
-        gameObject.SetActive(false);
-        StopAllCoroutines();
+        if (Input.GetMouseButtonDown(0))
+        {
+            gameObject.SetActive(false);
+            StopAllCoroutines();
+        }
     }
 
     private void OnEnable()
