@@ -6,9 +6,20 @@ using TMPro;
 
 public class TimeManager : MonoBehaviour, IDataPersistence
 {
-    private List<string> loginDates = new List<string>();
+    public static TimeManager instance {get; private set;}
+    public bool loggedInToday = false;
     private int consecutiveCount = 1;
+    private List<string> loginDates = new List<string>();
     [SerializeField] private TextMeshProUGUI streakCountText;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("Found more than one Time Manager in the scene.");
+        }
+        instance = this;
+    }
 
     public void LoadData(GameData data)
     {
@@ -26,6 +37,14 @@ public class TimeManager : MonoBehaviour, IDataPersistence
     public void SaveData(ref GameData data)
     {
         data.loginDates = this.loginDates;
+    }
+
+    public int GetConsecutiveCount(){
+        return consecutiveCount;
+    }
+
+    public bool GetLoggedInToday(){
+        return loggedInToday;
     }
 
     private int CountConsecutiveLoginDays()
@@ -47,6 +66,7 @@ public class TimeManager : MonoBehaviour, IDataPersistence
             // If the login date is the same as the previous date, skip it (same day login)
             if (loginDate == previousDate)
             {
+                loggedInToday = true;
                 continue;
             }
 

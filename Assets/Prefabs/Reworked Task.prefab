@@ -463,11 +463,13 @@ MonoBehaviour:
     isComplete: 0
     dateCreated: 
     dateCompleted: 
+    streak: 0
   gemPrefab: {fileID: 4134743242048953659, guid: 08240ea39ec064f40b53c2503caaafd8, type: 3}
   taskNameText: {fileID: 5765484309122431909}
   taskReward: 0
   menuClickSound: {fileID: 8300000, guid: 732b15f5e1a4c9c4a989242f7dd9b7c6, type: 3}
   taskRewardText: {fileID: 8888069504531826078}
+  taskStreakText: {fileID: 8285989335192781302}
 --- !u!1 &2924399492934238042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,7 +1704,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.6784314, b: 0.05490196, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.8509804, g: 0.5764706, b: 0.047058824, a: 1}
     m_PressedColor: {r: 0.7019608, g: 0.4745098, b: 0.039215688, a: 1}
     m_SelectedColor: {r: 0.7019608, g: 0.4745098, b: 0.039215688, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1748,7 +1750,7 @@ GameObject:
   - component: {fileID: 4505310566486698935}
   - component: {fileID: 8285989335192781302}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TaskStreak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1801,7 +1803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6/7
+  m_text: 0/7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -8,6 +8,7 @@ public class TaskObject {
     public bool isComplete;
     public string dateCreated;
     public string dateCompleted;
+    public int streak = 0;
 
     public TaskObject (string id, string taskName, int taskReward, string dateCreated)
     {

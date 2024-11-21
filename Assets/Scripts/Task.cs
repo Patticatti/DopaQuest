@@ -14,6 +14,7 @@ public class Task : MonoBehaviour
     public int taskReward;
     public AudioClip menuClickSound;
     [SerializeField] TextMeshProUGUI taskRewardText;
+    [SerializeField] TextMeshProUGUI taskStreakText;
     private float duration = 0.8f;
     private float crossOutDuration = 0.2f;
     private string originalText;
@@ -26,6 +27,7 @@ public class Task : MonoBehaviour
             taskNameText.text = taskObject.taskName;
         taskRewardText.text = "" + taskObject.taskReward;
         taskReward = taskObject.taskReward;
+        SetTaskText();
         // taskCreatedText.text = "" + taskObject.dateCreated;
         originalText = taskNameText.text;
         if (taskObject.isComplete)
@@ -47,6 +49,11 @@ public class Task : MonoBehaviour
         
     }
 
+    private void SetTaskText()
+    {
+        taskStreakText.text = taskObject.streak + "/7";
+    }
+
     //If is completed 
     private void OnTaskCompletion(bool isOn)
     {
@@ -55,12 +62,16 @@ public class Task : MonoBehaviour
         {
             GameEventsManager.instance.GemsCollected(taskObject.taskReward); // Add task reward
             taskObject.isComplete = true;
+            taskObject.streak += 1;
+            SetTaskText();
             StartFading();
             // toggle.interactable = false; // Disable the toggle
         }
         else{
             GameEventsManager.instance.GemsCollected(-taskObject.taskReward);
             taskObject.isComplete = false;
+            taskObject.streak -= 1;
+            SetTaskText();
             gameObject.transform.SetAsFirstSibling();
             SetFullOpacity();
             SetOriginalText();

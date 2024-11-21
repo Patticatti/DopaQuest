@@ -50,15 +50,34 @@ public class TaskManager : MonoBehaviour, IDataPersistence
         }
     }
 
+    private void ResetDailyTasks() 
+    {
+        foreach (TaskObject obj in taskObjects)
+        {
+            obj.isComplete = false;
+        }
+    }
+
     private void RenderTaskItem(TaskObject obj)
     {
         GameObject currentTask = Instantiate(taskItemPrefab);
         currentTask.transform.SetParent(parentTransform); 
+        Task taskScript = currentTask.GetComponent<Task>();
+        taskScript.taskObject = obj;
+        // if (TimeManager.instance.GetLoggedInToday() == false)
+        // {
+        //     if (obj.isComplete == true)
+        //     {
+        //         obj.isComplete = false; //if first login of day, set completed to false
+        //         obj.streak += 1;
+        //     }
+        //     else {
+        //         obj.streak = 0;
+        //     }
+        // }
         if (!obj.isComplete){
             currentTask.transform.SetAsFirstSibling();  
         }
-        Task taskScript = currentTask.GetComponent<Task>();
-        taskScript.taskObject = obj;
         taskObjectToGameObjectMap[obj] = currentTask;
     }
 
