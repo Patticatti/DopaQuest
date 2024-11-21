@@ -62,8 +62,7 @@ public class TaskManager : MonoBehaviour, IDataPersistence
     {
         GameObject currentTask = Instantiate(taskItemPrefab);
         currentTask.transform.SetParent(parentTransform); 
-        Task taskScript = currentTask.GetComponent<Task>();
-        taskScript.taskObject = obj;
+        
         // if (TimeManager.instance.GetLoggedInToday() == false)
         // {
         //     if (obj.isComplete == true)
@@ -78,6 +77,8 @@ public class TaskManager : MonoBehaviour, IDataPersistence
         if (!obj.isComplete){
             currentTask.transform.SetAsFirstSibling();  
         }
+        Task taskScript = currentTask.GetComponent<Task>();
+        taskScript.taskObject = obj;
         taskObjectToGameObjectMap[obj] = currentTask;
     }
 
